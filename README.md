@@ -22,6 +22,4 @@ This education site serves as a platform to facilitate various interactions with
 
 This platform aims to enhance the educational experience by providing a centralized hub for communication, course management, and academic tracking.
 
----
 
-Feel free to customize this template to fit the specific features and functionalities of your education site.
