@@ -13,7 +13,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Login Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Login Page</title>
 
     <meta name="description" content="" />
 
@@ -67,51 +67,7 @@
                       <!-- System Name -->
                       <a class="navbar-brand" href="#">FCAI</a>
                       <!-- /System Name -->
-                      <!-- Menu Links -->
-                      <ul class="navbar-nav flex-row align-items-center ms-auto">
-                          <li class="nav-item">
-                              <a class="nav-link" href="#">Courses</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#">Students</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#">Doctors</a>
-                          </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="#">Grades</a>
-                          </li>
-                          <!-- User Section -->
-                          <li class="nav-item">
-                              <div class="nav-item navbar-dropdown dropdown-user dropdown">
-                                  <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                                      <span class="avatar"> <!-- Moved the green point to this location -->
-                                          User Name
-                                          
-                                      </span>
-                                  </a>
-                                  <ul class="dropdown-menu dropdown-menu-end user-dropdown-menu" >
-                                      <li>
-                                          <a class="dropdown-item" href="#">
-                                              <i class="bx bx-user me-2"></i>
-                                              <span class="align-middle" style="color: #095d6c !important; font-weight: bold;">My Profile</span>
-                                          </a>
-                                      </li>
-                                      <li>
-                                          <div class="dropdown-divider"></div>
-                                      </li>
-                                      <li>
-                                          <a class="dropdown-item" href="javascript:void(0);">
-                                              <i class="bx bx-power-off me-2" ></i>
-                                              <span class="align-middle" style="color: #095d6c !important; font-weight: bold;">Log Out</span>
-                                          </a>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </li>
-                          <!-- /User Section -->
-                      </ul>
-                      <!-- /Menu Links -->
+                      
                   </div>
               </nav>
               <!-- / Navbar -->
@@ -177,11 +133,11 @@
                                     </g>
                                   </svg>
                                 </span>
-                                <span class="app-brand-text demo text-body fw-bold">Sneat</span>
+                                <a class="app-brand-text demo text-body fw-bold" href="home.html">FCAI</a>
                               </a>
                             </div>
                             <!-- /Logo -->
-                            <h4 class="mb-2">Welcome to Sneat! 👋</h4>
+                            <h4 class="mb-2">Welcome to FCAI! 👋</h4>
                             <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
                             <form id="formAuthentication" class="mb-3" action="index.html">
@@ -220,7 +176,7 @@
                                 </div>
                               </div>
                               <div class="mb-3">
-                                <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                                <button id="loginButton" class="btn btn-primary d-grid w-100" type="submit" onclick="alert('Login Successfully')">Sign in</button>
                               </div>
                             </form>
 
@@ -279,5 +235,16 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script>
+      // Get the button element
+      var button = document.getElementById("loginButton");
+    
+      // Add a click event listener to the button
+      button.addEventListener("click", function() {
+        // Redirect to another page
+        window.location.href = "idex.html";
+      });
+    </script>
   </body>
 </html>

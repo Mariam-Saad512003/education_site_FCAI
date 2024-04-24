@@ -1,31 +1,46 @@
 <!DOCTYPE html>
+
 <html lang="en" class="light-style layout-menu-fixed layout-compact" dir="ltr" data-theme="theme-default" data-assets-path="../../assets/" data-template="vertical-menu-template-free">
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <title>Without menu - Layouts | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Manage Courses</title>
+
     <meta name="description" content="" />
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/favicon.ico" />
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css" />
+
     <!-- Core CSS -->
     <link rel="stylesheet" href="../../assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="../../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../../assets/css/demo.css" />
+
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
     <!-- Page CSS -->
+
     <!-- Helpers -->
     <script src="../../assets/vendor/js/helpers.js"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
-</head>
-<body>
+  </head>
+
+  <body>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar layout-without-menu">
         <div class="layout-container">
@@ -46,7 +61,7 @@
                         <!-- Menu Links -->
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Courses</a>
+                                <a class="nav-link" href="manageCourse.html">Courses</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Students</a>
@@ -94,7 +109,109 @@
                 <div class="container-xxl flex-grow-1 container-p-y">
                     <!-- Layout Demo -->
                     <!-- Content -->
-                    content of page 
+
+                    <!-- Basic Bootstrap Table -->
+                    <div class="card">
+                        <h5 class="card-header">Course Management</h5>
+                        <div class="table-responsive text-nowrap">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Course Name</th>
+                                <th>Doctor Name</th>
+                                <th>Department</th>
+                                <th>Hours</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody class="table-border-bottom-0">
+                            <tr>
+                                <td>Machine Learning</td>
+                                <td><span class="badge bg-label-warning me-1">Waiting</span></td>
+                                <td>Computer Science</td>
+                                <td>3 hours</span></td>
+                                <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="javascript:void(0);"
+                                        ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                                    >
+                                    <a class="dropdown-item" href="javascript:void(0);"
+                                        ><i class="bx bx-trash me-1"></i> Delete</a
+                                    >
+                                    </div>
+                                </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Internet Application</td>
+                                <td><span class="badge bg-label-warning me-1">Waiting</span></td>
+                                <td>Information System</td>
+                                <td>3 hours<td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="javascript:void(0);"
+                                        ><i class="bx bx-edit-alt me-2"></i> Edit</a
+                                    >
+                                    <a class="dropdown-item" href="javascript:void(0);"
+                                        ><i class="bx bx-trash me-2"></i> Delete</a
+                                    >
+                                    </div>
+                                </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Signals</td>
+                                <td><span class="badge bg-label-warning me-1">Waiting</span></td>
+                                <td>General</td>
+                                <td>2 hours<td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="javascript:void(0);"
+                                        ><i class="bx bx-edit-alt me-2"></i> Edit</a
+                                    >
+                                    <a class="dropdown-item" href="javascript:void(0);"
+                                        ><i class="bx bx-trash me-2"></i> Delete</a
+                                    >
+                                    </div>
+                                </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Computer Network-2</td>
+                                <td><span class="badge bg-label-warning me-1">Waiting</span></td>
+                                <td>Internet Technology</td>
+                                <td>3 hours<td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="javascript:void(0);"
+                                        ><i class="bx bx-edit-alt me-2"></i> Edit</a
+                                    >
+                                    <a class="dropdown-item" href="javascript:void(0);"
+                                        ><i class="bx bx-trash me-2"></i> Delete</a
+                                    >
+                                    </div>
+                                </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                    <!--/ Basic Bootstrap Table -->
+                     
                     <!-- / Content -->
                     <!-- Footer -->
                     <footer class="content-footer footer bg-footer-theme">
