@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html
+  lang="en" xmlns:th="http://www.thymeleaf.org"
+  class="light-style layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../../assets/"
+  data-template="vertical-menu-template-free">
+  <head>
+
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>FCAI - Manage Courses</title>
+
+    <meta name="description" content="" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/collage.png" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css" />
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../../assets/css/demo.css" />
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <!-- Page CSS -->
+    <!-- Helpers -->
+    <script src="../../assets/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../../assets/js/config.js"></script>
+    
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar layout-without-menu">
+        <!-- Layout container -->
+        <div class="layout-container">
+          <!-- Layout Page -->
+          <div class="layout-page">
+            <!-- Navbar -->
+            <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center" id="layout-navbar" style="background-color: #095d6c !important;">
+              <style>
+                  nav#layout-navbar * {
+                      color: #f1fefa !important;
+                      font-weight: bold !important;
+                  }
+              </style>
+              <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                  <!-- System Name -->
+                  <a class="navbar-brand" href="index.html">FCAI</a>
+                  <!-- /System Name -->
+                  <!-- Menu Links -->
+                  <ul class="navbar-nav flex-row align-items-center ms-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="manage_accounts.html">accounts</a>
+                  </li>
+                  <li class="nav-item">
+                    <div class="nav-item navbar-dropdown dropdown-user dropdown">
+                        <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                            <span class="avatar"> <!-- Moved the green point to this location -->
+                             Courses
+
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end user-dropdown-menu" >
+                            <li>
+                                <a class="dropdown-item" href="view_open_course.html">
+                                    <i class="bx bx-user me-2"></i>
+                                    <span class="align-middle" style="color: #095d6c !important; font-weight: bold;">View open courses</span>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="dropdown-divider"></div>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="manage_course.html">
+                                    <i class="bx bx-power-off me-2" ></i>
+                                    <span class="align-middle" style="color: #095d6c !important; font-weight: bold;">Manage course</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                 
+                  <li class="nav-item">
+                      <a class="nav-link" href="manage_grades.html">Grades</a>
+                  </li>
+                 
+                      <!-- User Section -->
+                      <li class="nav-item">
+                          <div class="nav-item navbar-dropdown dropdown-user dropdown">
+                              <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                                  <span class="avatar"> <!-- Moved the green point to this location -->
+                                      User Name
+
+                                  </span>
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-end user-dropdown-menu" >
+                                  <li>
+                                      <a class="dropdown-item" href="#">
+                                          <i class="bx bx-user me-2"></i>
+                                          <span class="align-middle" style="color: #095d6c !important; font-weight: bold;">My Profile</span>
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <div class="dropdown-divider"></div>
+                                  </li>
+                                  <li>
+                                      <a class="dropdown-item" href="javascript:void(0);">
+                                          <i class="bx bx-power-off me-2" ></i>
+                                          <span class="align-middle" style="color: #095d6c !important; font-weight: bold;">Log Out</span>
+                                      </a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </li>
+                      <!-- /User Section -->
+                  </ul>
+                  <!-- /Menu Links -->
+              </div>
+            </nav>
+            <!-- / Navbar -->
+
+            <!-- Input form -->
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+
+              <!-- Content -->
+              <div class="container-xxl flex-grow-1 container-p-y">
+                <h4 class="py-3 mb-4"><span class="text-muted fw-light">Courses /</span> Create Course</h4>
+
+                <!-- Form controls -->
+                <div class="card">
+
+                    <h5 class="card-header">Course Info</h5>
+                    <div class="card-body">
+
+                      <div class="mb-3">
+                        <div>
+                          <label for="defaultFormControlInput" class="form-label">Course Name</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="defaultFormControlInput"
+                            placeholder="John Doe"
+                            aria-describedby="defaultFormControlHelp" />
+                          <div id="defaultFormControlHelp" class="form-text">
+                            Can't be duplicated
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Style of input -->
+                      <style>
+                        input[type=text]:focus{
+                          border-color: #095d6c !important;
+                        }
+                      </style>
+
+                      <!-- department selection -->
+                      <div class="mb-3">
+                        <label for="exampleFormControlSelect1" class="form-label">Department</label>
+                        <div class="form-selectdiv">
+                          <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                            <option selected>Select Department</option>
+                            <option value="1">CS</option>
+                            <option value="2">IS</option>
+                            <option value="3">IT</option>
+                            <option value="4">AI</option>
+                          </select>
+                        </div>
+                        <style>
+                          .form-selectdiv select:focus{border-color: #095d6c !important;}
+                        </style>
+                      </div>
+
+                      <div class="mb-3">
+                        <div>
+                          <label for="defaultFormControlInput" class="form-label">Number of Hours</label>
+                          <div class="form-selectdiv">
+                            <select class="form-select" aria-label="Default select example">
+                              <option selected>Select Number of Hours</option>
+                              <option value="1">2 Hours</option>
+                              <option value="2">3 Hours</option>
+                            </select>
+                          </div>
+                          <style>
+                            .form-selectdiv select:focus{border-color: #095d6c !important;}
+                          </style>
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <div>
+                          <label for="defaultFormControlInput" class="form-label">Pre-requested Course</label>
+                          <div class="form-selectdiv">
+                            <select class="form-select" aria-label="Default select example">
+                              <option selected>Select Course</option>
+                              <option value="1">2 Hours</option>
+                              <option value="2">3 Hours</option>
+                            </select>
+                          </div>
+                          <style>
+                            .form-selectdiv select:focus{border-color: #095d6c !important;}
+                          </style>
+                        </div>
+                      </div>
+
+                      <!-- Request Content to Admin -->
+                      <!-- Modal -->
+                      <!-- Modal Body -->
+                      <div class="mb-3">
+                        <div class="modal fade" id="modalScrollable" tabindex="-1" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="modalScrollableTitle">Request to Doctors</h5>
+                                <button
+                                  type="button"
+                                  class="btn-close"
+                                  data-bs-dismiss="modal"
+                                  aria-label="Close">
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                              <!-- To? -->
+                                <!-- List group checkbox -->
+                                <div class="mb-3">
+                                  <label for="exampleFormControlTextarea1" class="form-label">Select Doctors</label>
+                                  <div class="demo-inline-spacing mt-3">
+                                    <div class="list-group">
+                                      <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" />
+                                        doctor name
+                                      </label>
+                                      <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" />
+                                        doctor name
+                                      </label>
+                                      <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" />
+                                        doctor name
+                                      </label>
+                                      <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" />
+                                        doctor name
+                                      </label>
+                                      <label class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" />
+                                        doctor name
+                                      </label>
+                                    </div>
+                                  </div>
+                                <!-- Style of checkbox -->
+                                <style>
+                                  input[type=checkbox]:focus{
+                                    border-color: #095d6c;
+                                  }
+                                  input[type=checkbox]:checked{
+                                    border-color: #095d6c;
+                                    background-color: #095d6c;
+                                  }
+                                </style>
+                              </div>
+                              <!--/ List group checkbox -->
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" style="color: #095d6c !important; font-weight: bold;">
+                                Close
+                              </button>
+                              <button type="button" class="btn btn-primary" style="background-color: #095d6c !important; font-weight: bold; border-color: #095d6c;border: none;">
+                                Send Request
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- / Modal body -->
+
+                      <!-- Modal button -->
+                      <div class="demo-inline-spacing">
+                        <!-- Button ModalScrollable -->
+                        <button  type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalScrollable"  style="box-shadow: #095d6c; background-color: #095d6c !important; font-weight: bold; border: none;">  select Doctors  </button>
+                        <br>
+                        <button  type="button"class="btn btn-primary" data-bs-toggle="modal"  data-bs-target="#modalScrollable" style="box-shadow: #095d6c; background-color: #095d6c !important; font-weight: bold; border: none; float: right;">  Submit </button>
+                      </div>
+                      <!-- /Request Content to Admin -->
+                    
+                      <!-- Submit Button -->
+                        <div class="d-grid gap-2 col-lg-6 mx-auto">
+                  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /content -->
+            </div>
+            <!-- /content wrapper -->
+            <!-- /Input Form -->
+
+
+            <!-- Table -->
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+              <!-- Content -->
+              <div class="container-xxl flex-grow-1 container-p-y">
+                <h4 class="py-3 mb-4"><span class="text-muted fw-light">Course /</span> Departments</h4>
+                <!-- Basic Bootstrap Table -->
+                <div class="card">
+                  <h5 class="card-header">CS Department</h5>
+                  <div class="table-responsive text-nowrap">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Course Name</th>
+                          <th>Number of Hours</th>
+                          <th>Pre Course</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody class="table-border-bottom-0" id="csTableBody">
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/ Basic Bootstrap Table -->
+
+            <!-- Table -->
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+              <!-- Content -->
+              <div class="container-xxl flex-grow-1 container-p-y">
+                <!-- Basic Bootstrap Table -->
+                <div class="card">
+                  <h5 class="card-header">IS Department</h5>
+                  <div class="table-responsive text-nowrap">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Course Name</th>
+                          <th>Number of Hours</th>
+                          <th>Pre Course</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody class="table-border-bottom-0" id="isTableBody">
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/ Basic Bootstrap Table -->
+
+            <!-- Table -->
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+              <!-- Content -->
+              <div class="container-xxl flex-grow-1 container-p-y">
+                <!-- Basic Bootstrap Table -->
+                <div class="card">
+                  <h5 class="card-header">IT Department</h5>
+                  <div class="table-responsive text-nowrap">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Course Name</th>
+                          <th>Number of Hours</th>
+                          <th>Pre Course</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody class="table-border-bottom-0" id="itTableBody">
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/ Basic Bootstrap Table -->
+
+            <!-- Table -->
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+              <!-- Content -->
+              <div class="container-xxl flex-grow-1 container-p-y">
+                <!-- Basic Bootstrap Table -->
+                <div class="card">
+                  <h5 class="card-header">AI Department</h5>
+                  <div class="table-responsive text-nowrap">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Course Name</th>
+                          <th>Number of Hours</th>
+                          <th>Pre Course</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody class="table-border-bottom-0" id="aiTableBody">
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/ Basic Bootstrap Table -->
+
+            <!-- Footer -->
+            <footer class="content-footer footer bg-footer-theme">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0">
+                  &copy;
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                  FCAI, All Rights Reserved.
+                </div>
+                <div class="d-none d-lg-inline-block">
+                  <a href="#" class="footer-link me-4">Contact Us</a>
+                  <span class="footer-separator">|</span>
+                  <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+              </div>
+            </footer>
+            <!-- / Footer -->
+          </div>
+          <!-- / Layout page -->
+        </div>
+        <!-- /Layout container -->
+      </div>
+      <!-- / Layout wrapper -->
+
+      <!-- Spring Boot JQuery -->
+
+
+      <script>
+        $(document).ready(function() {
+                function fetchData1() {
+                  $.ajax({
+                        url: 'http://localhost:8000/department/1/getCourse', // The URL to your API
+                        type: 'GET', // The HTTP method to use
+                        dataType: 'json', 
+                        success: function(data) {
+                            $('#csTableBody').empty();
+                            $.each(data, function(index, course) {
+                                var newRow = '<tr>' + 
+                                  '<td>' + course.id + '</td>' +
+                                  '<td>' + course.courseName + '</td>' +
+                                  '<td>' + course.numOfHours + '</td>' +
+                                  '<td>' + course.precourseName + '</td>' +
+                                  '<td><div div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button><div class="dropdown-menu"><a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-2"></i>Edit</a><a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-2"></i>Delete</a></div></div></td>' +
+                                  '</tr>';
+    
+                                $('#csTableBody').append(newRow);
+                            });
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            console.error('Error fetching data: ' + textStatus, errorThrown);
+                        }
+                    });
+                }
+                fetchData1();
+            });
+
+
+            $(document).ready(function() {
+                function fetchData2() {
+                  $.ajax({
+                        url: 'http://localhost:8000/department/2/getCourse', // The URL to your API
+                        type: 'GET', // The HTTP method to use
+                        dataType: 'json', 
+                        success: function(data) {
+                            $('#isTableBody').empty();
+                            $.each(data, function(index, course) {
+                                var newRow = '<tr>' + 
+                                  '<td>' + course.id + '</td>' +
+                                  '<td>' + course.courseName + '</td>' +
+                                  '<td>' + course.numOfHours + '</td>' +
+                                  '<td>' + course.precourseName + '</td>' +
+                                  '<td><div div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button><div class="dropdown-menu"><a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-2"></i>Edit</a><a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-2"></i>Delete</a></div></div></td>' +
+                                  '</tr>';
+    
+                                $('#isTableBody').append(newRow);
+                            });
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            console.error('Error fetching data: ' + textStatus, errorThrown);
+                        }
+                    });
+                }
+                fetchData2();
+            });
+            
+            $(document).ready(function() {
+                function fetchData3() {
+                  $.ajax({
+                        url: 'http://localhost:8000/department/3/getCourse', // The URL to your API
+                        type: 'GET', // The HTTP method to use
+                        dataType: 'json', 
+                        success: function(data) {
+                            $('#itTableBody').empty();
+                            $.each(data, function(index, course) {
+                                var newRow = '<tr>' + 
+                                  '<td>' + course.id + '</td>' +
+                                  '<td>' + course.courseName + '</td>' +
+                                  '<td>' + course.numOfHours + '</td>' +
+                                  '<td>' + course.precourseName + '</td>' +
+                                  '<td><div div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button><div class="dropdown-menu"><a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-2"></i>Edit</a><a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-2"></i>Delete</a></div></div></td>' +
+                                  '</tr>';
+    
+                                $('#itTableBody').append(newRow);
+                            });
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            console.error('Error fetching data: ' + textStatus, errorThrown);
+                        }
+                    });
+                }
+                fetchData3();
+            });
+
+            $(document).ready(function() {
+                function fetchData4() {
+                  $.ajax({
+                        url: 'http://localhost:8000/department/4/getCourse', // The URL to your API
+                        type: 'GET', // The HTTP method to use
+                        dataType: 'json', 
+                        success: function(data) {
+                            $('#aiTableBody').empty();
+                            $.each(data, function(index, course) {
+                                var newRow = '<tr>' + 
+                                  '<td>' + course.id + '</td>' +
+                                  '<td>' + course.courseName + '</td>' +
+                                  '<td>' + course.numOfHours + '</td>' +
+                                  '<td>' + course.precourseName + '</td>' +
+                                  '<td><div div class="dropdown"><button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="bx bx-dots-vertical-rounded"></i></button><div class="dropdown-menu"><a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-2"></i>Edit</a><a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-2"></i>Delete</a></div></div></td>' +
+                                  '</tr>';
+    
+                                $('#aiTableBody').append(newRow);
+                            });
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            console.error('Error fetching data: ' + textStatus, errorThrown);
+                        }
+                    });
+                }
+                fetchData4();
+            });
+
+        // $(document).ready(function(){
+        //     // AJAX call to retrieve departments and their courses
+        //     function fetchData(){
+        //       $.ajax({
+        //       url: 'http://localhost:8000/department/1/getCourse', // Replace with your backend endpoint
+        //       type: 'GET',
+        //       dataType: 'json',
+        //       success: function(response) {
+        //         // Iterate over each department
+        //         $.each(response, function(index, department) {
+        //           // Create a new row for the department
+        //           var row = $('<tr>');
+        //           // Add department name to the row
+        //           row.append($('<td>').text(department.departmentName));
+
+        //           // Create a cell for courses
+        //           var coursesCell = $('<td>');
+
+        //           // Iterate over courses of the department
+        //           $.each(department.courseList, function(index, course) {
+        //             // Append course name to coursesCell
+        //             coursesCell.append(course.courseName + '<br>');
+        //           });
+
+        //           // Append coursesCell to the row
+        //           row.append(coursesCell);
+
+        //           // Append the row to the table body
+        //           $('#csTableBody').append(row);
+        //         });
+        //       },
+        //       error: function(xhr, status, error) {
+        //         console.error('Error fetching department courses:', error);
+        //       }
+        //     });
+        //   }
+        //   fetchData();
+        // });
+      </script>
+
+      <!-- Core JS -->
+      <!-- build:js assets/vendor/js/core.js -->
+
+      <!-- <script src="../../assets/vendor/libs/jquery/jquery.js"></script> -->
+      <script src="../../assets/vendor/libs/popper/popper.js"></script>
+      <script src="../../assets/vendor/js/bootstrap.js"></script>
+      <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+      <!-- <script src="../../assets/vendor/js/menu.js"></script> -->
+
+      <!-- endbuild -->
+
+      <!-- Vendors JS -->
+
+      <!-- Main JS -->
+      <script src="../../assets/js/main.js"></script>
+
+      <!-- Page JS -->
+
+      <!-- Place this tag in your head or just before your close body tag. -->
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  </body>
+</html>
