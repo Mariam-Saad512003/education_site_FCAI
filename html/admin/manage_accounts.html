@@ -162,38 +162,49 @@
 
                               <div class="demo-inline-spacing mt-3">
                                 <div class="list-group">
-                                  <div id="addStudentForm">
-                                    <form id="addStudentForm" onsubmit="return validateForm()">
+                                  <div >
+                                    <form id="adddoctortable"  onsubmit="return validateForm()">
 
                                       <label for="defaultFormControlInput" class="form-label">ID</label>
                                       <input name="id" type="number" class="form-control" id="defaultFormControlInput" aria-describedby="defaultFormControlHelp" min="0" oninput="checkIdValue(this.value)" />
                                       <span id="idError" style="color: red;"></span><br>
                                   
-                                      <br>
-
-                                      <label for="name" class="form-label">Name</label>
-                                      <input name="name" type="text" class="form-control" id="name" aria-describedby="nameHelp" pattern="[A-Za-z ]+" required>
-                                      <span id="nameError" style="color: red;"></span><br>
-                                  
-                                      <label for="email" class="form-label">Email</label>
-                                      <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" pattern="[a-zA-Z0-9._%+-]+@gmail\.com$" required>
-                                      <span id="emailError" style="color: red;"></span><br>
-                                  
-                                      <label for="password" class="form-label">Password</label>
-                                      <input name="password" type="password" class="form-control" id="password" aria-describedby="passwordHelp" value="student_password" required><br>
                                       
-                                      <label for="ssn" class="form-label">SSN</label>
-                                      <input name="ssn" type="text" class="form-control" id="ssn" aria-describedby="ssnHelp" pattern="[0-9]{14}" required>
-                                      <span id="ssnError" style="color: red;"></span><br>
-                                  
-                                      <label for="address" class="form-label">Address</label>
-                                      <input name="address" type="text" class="form-control" id="address" aria-describedby="addressHelp" required><br>
-                                  
+                                      <label for="name" class="form-label">Name</label>
+                                      <input name="name" type="text" class="form-control" id="named" aria-describedby="nameHelp" pattern="[A-Za-z ]+" required>
+                                      <span id="nameError" style="color: red;"></span><br>
+
                                       <label for="age" class="form-label">Age</label>
-                                      <input name="age" type="number" class="form-control" id="age" aria-describedby="ageHelp" min="19" max="100" required>
+                                      <input name="age" type="number" class="form-control" id="aged" aria-describedby="ageHelp" min="19" max="100" required>
                                       <span id="ageError" style="color: red;"></span><br>
                 
-                                      <label for="department" class="form-label">Department</label>
+                                      <label for="ssn" class="form-label">SSN</label>
+                                      <input name="ssn" type="text" class="form-control" id="ssnd" aria-describedby="ssnHelp" pattern="[0-9]{14}" required>
+                                      <span id="ssnError" style="color: red;"></span><br>
+                                  
+
+                                      
+                                      <label for="email" class="form-label">Email</label>
+                                      <input name="email" type="email" class="form-control" id="emaild" aria-describedby="emailHelp" pattern="[a-zA-Z0-9._%+-]+@gmail\.com$" required>
+                                      <span id="emailError" style="color: red;"></span><br>
+                                  
+                                      <br>
+                                      <label for="password" class="form-label">Password</label>
+                                      <input name="password" type="password" class="form-control" id="passwordd" aria-describedby="passwordHelp" value="student_password" required><br>
+                                      
+                                      <label for="department" class="form-label">Gender</label>
+                                      <select name="department" class="form-select" id="GEnderd" aria-describedby="GenderHelp" required>
+                                          <option value="">Select Gender</option>
+                                          <option value="IS">Female</option>
+                                          <option value="IT">Male</option>
+                                      </select><br>
+
+                                      <label for="defaultFormControlInput" class="form-label">Salary</label>
+                                      <input name="id" type="number" class="form-control" id="salary" aria-describedby="defaultFormControlHelp" min="0" oninput="checkIdValue(this.value)" />
+                                      <span id="salaryError" style="color: red;"></span><br>
+
+                                
+                                    <!--  <label for="department" class="form-label">Department</label>
                                       <select name="department" class="form-select" id="department" aria-describedby="departmentHelp" required>
                                           <option value="">Select Department</option>
                                           <option value="IS">IS</option>
@@ -201,8 +212,8 @@
                                           <option value="AI">AI</option>
                                           <option value="CS">CS</option>
                                       </select><br>
-
-                                      <button type="submit" class="btn btn-primary" style="background-color: #095d6c !important; font-weight: bold;border: none; ">Submit</button>
+                                      -->
+                                      <button type="submit" class="btn btn-primary" style="background-color: #095d6c !important; font-weight: bold;border: none; " onclick="addDoctort()" >Submit</button>
                                   </form>
 
 
@@ -214,6 +225,7 @@
                                       var age = document.getElementById('age').value;
                                       var ssn = document.getElementById('ssn').value;
                                       var email = document.getElementById('email').value;
+                                      var salary = document.getElementById('salary').value;
 
                                       // ID Validation
                                       var idError = document.getElementById('idError');
@@ -255,6 +267,14 @@
                                           document.getElementById('emailError').textContent = "";
                                       }
 
+                                      //Salary validation 
+                                       var salaryError = document.getElementById('slaryError');
+                                        if (!/^[0-9]*$/.test(value)) {
+                                            idError.textContent = "Salary must contain only digits";
+                                        } else {
+                                            salaryError.textContent = "";
+                                        }
+
                                       return true;
                                   }
 
@@ -282,7 +302,7 @@
           <div class="content-wrapper">
             <!-- Content -->
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="py-3 mb-4"><span class="text-muted fw-light">Accounts /</span> All Accounts</h4>
+              <h4 class="py-3 mb-4"><span class="text-muted fw-light">Accounts /</span> All Doctor Accounts</h4>
             <!-- Content wrapper -->
             <div class="content-wrapper">
             <!-- Content -->
@@ -303,16 +323,17 @@
               <div class="card">
                 <h5 class="card-header">Doctors Accounts</h5>
                 <div class="table-responsive text-nowrap">
-                  <table class="table">
+                  <table class="table" id="doctorTable">
                     <thead>
                       <tr>
-                        <th>#</th>
+                        <th>ID</th>
                         <th>Name</th>
-                        <th>email</th>
-                        <th>password</th>
-                        <th>ssn</th>
-                        <th>address</th>
-                        <th>age</th>
+                        <th>Age</th>
+                        <th>SSN</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Gender</th>
+                        <th>Salary</th>
                         <td><button class="deleteButton btn btn-danger" data-id="1" style="background-color: #095d6c !important; font-weight: bold; border: none;">Delete</button></td>
 
                         
@@ -320,7 +341,7 @@
 
                       </tr>
                     </thead>
-                    <tbody class="table-border-bottom-0">
+                    <tbody class="table-border-bottom-0" id="TableBoody">
                      
                     </tbody>
                   </table>
@@ -341,10 +362,8 @@
 
           
 
-              <!-- Form controls -->
-                    <!-- Modal -->
-                   
-                    <!-- Modal Body -->
+              <!-- Form Studen -->
+    
                     <div class="modal fade" id="modalScrollable1" tabindex="-1" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-scrollable" role="document">
                         <div class="modal-content">
@@ -365,11 +384,11 @@
 
                               <div class="demo-inline-spacing mt-3">
                                 <div class="list-group">
-                                  <div id="addStudentForm">
+                                  <div>
                                     <form id="addStudentForm" onsubmit="return validateForm()">
 
                                       <label for="defaultFormControlInput" class="form-label">ID</label>
-                                      <input name="id" type="number" class="form-control" id="defaultFormControlInput" aria-describedby="defaultFormControlHelp" min="0" oninput="checkIdValue(this.value)" />
+                                      <input name="id" type="number" class="form-control" id="id" aria-describedby="defaultFormControlHelp" min="0" oninput="checkIdValue(this.value)" />
                                       <span id="idError" style="color: red;"></span><br>
                                   
                                       <br>
@@ -377,7 +396,19 @@
                                       <label for="name" class="form-label">Name</label>
                                       <input name="name" type="text" class="form-control" id="name" aria-describedby="nameHelp" pattern="[A-Za-z ]+" required>
                                       <span id="nameError" style="color: red;"></span><br>
+
+                                      
+                                      <label for="age" class="form-label">Age</label>
+                                      <input name="age" type="number" class="form-control" id="age" aria-describedby="ageHelp" min="19" max="100" required>
+                                      <span id="ageError" style="color: red;"></span><br>
                                   
+                                  
+
+                                      <label for="ssn" class="form-label">SSN</label>
+                                      <input name="ssn" type="text" class="form-control" id="ssn" aria-describedby="ssnHelp" pattern="[0-9]{14}" required>
+                                      <span id="ssnError" style="color: red;"></span><br>
+                                  
+
                                       <label for="email" class="form-label">Email</label>
                                       <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" pattern="[a-zA-Z0-9._%+-]+@gmail\.com$" required>
                                       <span id="emailError" style="color: red;"></span><br>
@@ -385,17 +416,17 @@
                                       <label for="password" class="form-label">Password</label>
                                       <input name="password" type="password" class="form-control" id="password" aria-describedby="passwordHelp" value="student_password" required><br>
                                       
-                                      <label for="ssn" class="form-label">SSN</label>
-                                      <input name="ssn" type="text" class="form-control" id="ssn" aria-describedby="ssnHelp" pattern="[0-9]{14}" required>
-                                      <span id="ssnError" style="color: red;"></span><br>
-                                  
-                                      <label for="address" class="form-label">Address</label>
-                                      <input name="address" type="text" class="form-control" id="address" aria-describedby="addressHelp" required><br>
-                                  
-                                      <label for="age" class="form-label">Age</label>
-                                      <input name="age" type="number" class="form-control" id="age" aria-describedby="ageHelp" min="19" max="100" required>
-                                      <span id="ageError" style="color: red;"></span><br>
-                                  
+
+                                      <label for="gender" class="form-label">Gender</label>
+                                    
+
+                                      <select name="gender" class="form-select" id="gender" aria-describedby="GenderHelp" required>
+                                          <option value="">Select Gender</option>
+                                          <option value="Female">Female</option>
+                                          <option value="Male">Male</option>
+                                      </select><br>
+
+                                      
                                       <label for="level" class="form-label">Level</label>
                                       <input name="level" type="text" class="form-control" id="level" aria-describedby="levelHelp" value="1"  required><br>
                                   
@@ -408,7 +439,7 @@
                                           <option value="CS">CS</option>
                                       </select><br>
 
-                                      <button type="submit" class="btn btn-primary" style="background-color: #095d6c !important; font-weight: bold;border: none; ">Submit</button>
+                                      <button type="submit" class="btn btn-primary" style="background-color: #095d6c !important; font-weight: bold;border: none; " onclick="addStudent()">Submit</button>
 
                                     </form>
 
@@ -416,7 +447,7 @@
                                    <script>
                                   
                                     function validateForm() {
-                                        var id = document.getElementById('defaultFormControlInput').value;
+                                        var id = document.getElementById('id').value;
                                         var name = document.getElementById('name').value;
                                         var age = document.getElementById('age').value;
                                         var ssn = document.getElementById('ssn').value;
@@ -484,34 +515,39 @@
 
 
 
-          <h4 class="py-3 mb-4"><span class="text-muted fw-light">Accounts /</span> All Accounts</h4>
+          <h4 class="py-3 mb-4"><span class="text-muted fw-light">Accounts /</span> All Student Accounts</h4>
              
           <!-- Content wrapper -->
            <div class="content-wrapper">
               <!-- Content -->
 
                 <div class="container-xxl flex-grow-1 container-p-y">
+                
                   <!-- Button ModalScrollable -->
-                  <button  type="button"  class="btn btn-primary" data-bs-toggle="modal"  data-bs-target="#modalScrollable" style="background-color: #095d6c !important; font-weight: bold; border: none; float: right;">Add Doctor</button>
+                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalScrollable1" style="background-color: #095d6c !important; font-weight: bold; border: none; float: right;">Add student</button>
                 </div>
 
               <div class="card">
-                <h5 class="card-header">Doctors Accounts</h5>
+                <h5 class="card-header">Student Accounts</h5>
                 <div class="table-responsive text-nowrap">
-                    <table class="table">
+                    <table class="table" id="studentTable">
                       <thead>
                         <tr>
                           <th>#</th>
+                          <th>id</th>
                           <th>Name</th>
-                          <th>email</th>
+                          <th>Age</th>
+                          <th>SSN</th>
+                          <th>Email</th>
                           <th>password</th>
-                          <th>ssn</th>
-                          <th>address</th>
-                          <th>age</th>
+                          <th>Gender</th>   
+                          <th>Level</th>
+                          <th>Department</th>
+                          
                           <td><button class="deleteButton btn btn-danger" data-id="1" style="background-color: #095d6c !important; font-weight: bold; border: none;">Delete</button></td>
                         </tr>
                       </thead>
-                      <tbody class="table-border-bottom-0">
+                      <tbody class="table-border-bottom-0" id="TableBody">
                       
                       </tbody>
                     </table>
@@ -548,6 +584,7 @@
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
 
+    
     <script src="../../assets/vendor/libs/jquery/jq"></script>
     <script src="../../assets/vendor/libs/popper/popper.js"></script>
     <script src="../../assets/vendor/js/bootstrap.js"></script>
@@ -571,7 +608,7 @@
               // Function to fetch data from the API and add it to the table
               function fetchData() {
                   $.ajax({
-                      url: 'http://localhost:8081/AccountStudent', // The URL to your API
+                      url: 'http://localhost:8081/admin/displaystudent', // The URL to your API
                       type: 'GET', // The HTTP method to use
                       dataType: 'json', // The type of data you're expecting back from the server
                       success: function(data) {
@@ -585,11 +622,11 @@
                                   '<td><span class="custom-checkbox"><input type="checkbox" id="checkbox' + student.id + '"><label for="checkbox' + student.id + '"></label></span></td>' +
                                   '<td>' + student.id + '</td>' +
                                   '<td>' + student.name + '</td>' +
+                                  '<td>' + student.age + '</td>' + 
+                                  '<td>' + student.ssn + '</td>' +
                                   '<td>' + student.email + '</td>' +
                                   '<td>' + student.password + '</td>' +
-                                  '<td>' + student.ssn + '</td>' +
-                                  '<td>' + student.address + '</td>' +
-                                  '<td>' + student.age + '</td>' +     
+                                  '<td>' + student.gender + '</td>' +
                                   '<td>' + student.level + '</td>' +
                                   '<td>' + student.department + '</td>' +
                                   '<td><button class="deleteButton btn btn-danger"  style="background-color: #095d6c !important; font-weight: bold; border: none;" data-id="' + student.id + '"><i class="bx bx-trash me-1"></i></button></td>' + // Move delete button code here
@@ -613,54 +650,51 @@
           });
     </script>
     <script>
-      function addStudent() {
-        var id = $("#addStudentForm input[name='id']").val();
-        var name = $("#addStudentForm input[name='name']").val();
-        var email = $("#addStudentForm input[name='email']").val();
-        var password = $("#addStudentForm input[name='password']").val();
-        var ssn = $("#addStudentForm input[name='ssn']").val();
-        var address = $("#addStudentForm input[name='address']").val();
-        var age = $("#addStudentForm input[name='age']").val();
-        var level = $("#addStudentForm input[name='level']").val();
-        var department = $("#addStudentForm input[name='department']").val();
-        var requestData = {
-          "id": id,
-          "name": name,
-          "email":email,
-          "password":password,
-          "ssn":ssn,
-          "address":address,
-          "age": age,
-          "level": level,
-          "department": department
-        };
-    
-        $.ajax({
-          type: "POST",
-          url: "http://localhost:8081/AccountStudent/create",
-          contentType: "application/json",
-          data: JSON.stringify(requestData),
-          success: function(response) {
-            console.log("Student added successfully");
-            location.reload();
-            // Update form fields with newly added data
-            $("#data_model input[name='id']").val(response.id);
-            $("#data_model input[name='name']").val(response.name);
-            $("#data_model input[name='email']").val(response.email);
-            $("#data_model input[name='password']").val(response.password);
-            $("#data_model input[name='ssn']").val(response.ssn);
-            $("#data_model input[name='address']").val(response.address);
-            $("#data_model input[name='age']").val(response.age);
-            $("#data_model input[name='level']").val(response.level);
-            $("#data_model input[name='department']").val(response.department);
-          },
-          error: function(xhr, status, error) {
-            console.error("Error adding student:", error);
-            // Handle errors if any
+      document.addEventListener('DOMContentLoaded', async () => {
+          document.getElementById("addStudentForm").addEventListener('submit', addStudent);
+      });
+  
+      async function addStudent(event) {
+          event.preventDefault();
+  
+          const id = document.getElementById('id').value;
+          const name = document.getElementById('name').value;
+          const age = document.getElementById('age').value;
+          const ssn = document.getElementById('ssn').value;
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          const gender = document.getElementById('gender').value;
+          const level = document.getElementById('level').value;
+          const department = document.getElementById('department').value;
+  
+          const newStuData = {
+              id,
+              name,
+              age,
+              ssn,
+              email,
+              password,
+              gender,
+              level,
+              department
+          };
+  
+          try {
+              const response = await fetch('http://localhost:8081/admin/addStudent', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(newStuData)
+              });
+              // You might want to handle the response here
+          } catch (error) {
+              console.error('Error:', error);
           }
-        });
+          window.location.reload();
       }
-    </script>
+  </script>
+  
     <script>
       $(document).ready(function() {
         // Event listener for delete button
@@ -671,7 +705,7 @@
           // Send DELETE request to API endpoint
           $.ajax({
             type: "DELETE",
-            url: "http://localhost:8081/AccountStudent/" + id + "/delete",
+            url: "http://localhost:8081/admin/deleteStudent/" + id,
             success: function(response) {
               console.log("Student deleted successfully");
               // Optionally, update the UI after successful deletion
@@ -689,7 +723,135 @@
       
       
   </script>
-    
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  //doctor
+  $(document).ready(function() {
+    // Function to fetch data from the API and add it to the table
+    function fetchData() {
+        $.ajax({
+            url: 'http://localhost:8081/admin/displaydoctor', // The URL to your API
+            type: 'GET', // The HTTP method to use
+            dataType: 'json', // The type of data you're expecting back from the server
+            success: function(data) {
+                // Clear existing table data
+                $('#doctorTable tbody').empty();
+
+                // Iterate over each item in the response
+                $.each(data, function(index, doctor) {
+                    // Create a new row with the student data
+                    var newRow = '<tr>' +
+                        '<td>' + doctor.id + '</td>' +
+                        '<td>' + doctor.name + '</td>' +
+                        '<td>' + doctor.age + '</td>' + 
+                        '<td>' + doctor.ssn + '</td>' +
+                        '<td>' + doctor.email + '</td>' +
+                        '<td>' + doctor.password + '</td>' +
+                        '<td>' + doctor.gender + '</td>' +
+                        '<td>' + doctor.salary + '</td>' +
+                        '<td><button class="deleteButton btn btn-danger"  style="background-color: #095d6c !important; font-weight: bold; border: none;" data-id="' + doctor.id + '"><i class="bx bx-trash me-1"></i></button></td>' + 
+                        '</tr>';
+
+                    // Append the new row to the table body
+                    $('#doctorTable tbody').append(newRow);
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching data:', error);
+                // Handle errors if any
+                alert('Failed to fetch doctor data. Please try again later.');
+            }
+        });
+    }
+
+    // Call the function to fetch data when the page loads
+    fetchData();
+});
+
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+      document.getElementById("adddoctortable").addEventListener('submit', addDoctor);
+  });
+
+  async function addDoctor(event) {
+      event.preventDefault();
+
+      const id = document.getElementById('defaultFormControlInput').value;
+      const name = document.getElementById('named').value;
+      const age = document.getElementById('aged').value;
+      const ssn = document.getElementById('ssnd').value;
+      const email = document.getElementById('emaild').value;
+      const password = document.getElementById('passwordd').value;
+      const gender = document.getElementById('GEnderd').value;
+      const salary = document.getElementById('salary').value;
+
+      const newDcoData = {
+          id,
+          name,
+          age,
+          ssn,
+          email,
+          password,
+          gender,
+          salary
+         
+      };
+
+      try {
+          const response = await fetch('http://localhost:8081/admin/createDoctor', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(newDcoData)
+          });
+          // You might want to handle the response here
+      } catch (error) {
+          console.error('Error:', error);
+      }
+      window.location.reload();
+  }
+</script>
+
+
+
+
+
+<script>
+  $(document).ready(function() {
+    // Event listener for delete button
+    $('#TableBoody').on('click', '.deleteButton', function() {
+      var id = $(this).attr("data-id");
+      var $deleteButton = $(this); // Store reference to $(this)
+  
+      // Send DELETE request to API endpoint
+      $.ajax({
+        type: "DELETE",
+        url: "http://localhost:8081/admin/DeleteDoctor/" + id,
+        success: function(response) {
+          console.log("Student deleted successfully");
+          // Optionally, update the UI after successful deletion
+  
+          // Remove the row from the table after deletion
+          $deleteButton.closest('tr').remove(); // Use stored reference to $(this)
+        },
+        error: function(xhr, status, error) {
+          console.error("Error deleting doctor:", error);
+          // Handle errors if any
+        }
+      });
+    });
+  });
+  
+  
+</script>
+
     
   </body>
 </html>
