@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html
+  lang="en" xmlns:th="http://www.thymeleaf.org"
+  class="light-style layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../../assets/"
+  data-template="vertical-menu-template-free">
+  <head>
+
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>FCAI - Manage Accounts</title>
+
+    <meta name="description" content="" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/collage.png" />    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css" />
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../../assets/css/demo.css" />
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <!-- Page CSS -->
+    <!-- Helpers -->
+    <script src="../../assets/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../../assets/js/config.js"></script>
+    
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar layout-without-menu">
+        <!-- Layout container -->
+        <div class="layout-container">
+          <!-- Layout Page -->
+          <div class="layout-page">
+            <!-- Navbar -->
+            <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center" id="layout-navbar" style="background-color: #095d6c !important;">
+              <style>
+                  nav#layout-navbar * {
+                      color: #f1fefa !important;
+                      font-weight: bold !important;
+                  }
+              </style>
+              <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                  <!-- System Name -->
+                  <a class="navbar-brand" href="index.html">FCAI</a>
+                  <!-- /System Name -->
+                  <!-- Menu Links -->
+                  <ul class="navbar-nav flex-row align-items-center ms-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="manage_accounts.html">accounts</a>
+                  </li>
+                  <li class="nav-item">
+                    <div class="nav-item navbar-dropdown dropdown-user dropdown">
+                        <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                            <span class="avatar"> <!-- Moved the green point to this location -->
+                             Courses
+
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end user-dropdown-menu" >
+                            <li>
+                                <a class="dropdown-item" href="view_open_course.html">
+                                    <i class="bx bx-user me-2"></i>
+                                    <span class="align-middle" style="color: #095d6c !important; font-weight: bold;">View open courses</span>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="dropdown-divider"></div>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="manage_course.html">
+                                    <i class="bx bx-power-off me-2" ></i>
+                                    <span class="align-middle" style="color: #095d6c !important; font-weight: bold;">Manage course</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                 
+                  <li class="nav-item">
+                      <a class="nav-link" href="manage_grades.html">Grades</a>
+                  </li>
+                 
+                      <!-- User Section -->
+                      <li class="nav-item">
+                          <div class="nav-item navbar-dropdown dropdown-user dropdown">
+                              <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                                  <span class="avatar"> <!-- Moved the green point to this location -->
+                                      User Name
+
+                                  </span>
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-end user-dropdown-menu" >
+                                  <li>
+                                      <a class="dropdown-item" href="profile.html">
+                                          <i class="bx bx-user me-2"></i>
+                                          <span class="align-middle" style="color: #095d6c !important; font-weight: bold;">My Profile</span>
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <div class="dropdown-divider"></div>
+                                  </li>
+                                  <li>
+                                      <a class="dropdown-item" href="javascript:void(0);">
+                                          <i class="bx bx-power-off me-2" ></i>
+                                          <span class="align-middle" style="color: #095d6c !important; font-weight: bold;">Log Out</span>
+                                      </a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </li>
+                      <!-- /User Section -->
+                  </ul>
+                  <!-- /Menu Links -->
+              </div>
+            </nav>
+            <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+
+              <!-- Form controls -->
+                    <!-- Modal -->
+                    <div class="mb-3">
+                    <!-- Modal Body -->
+                    <div class="modal fade" id="modalScrollable" tabindex="-1" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="modalScrollableTitle">New Doctor</h5>
+                            <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <!-- Request Content to Admin -->
+                            <!-- To? -->
+
+                            <!-- List group checkbox -->
+                            <div class="mb-3" >
+
+                              <div class="demo-inline-spacing mt-3">
+                                <div class="list-group">
+                                  <div >
+                                    <form id="adddoctortable"  onsubmit="return validateForm()">
+
+                                      <label for="defaultFormControlInput" class="form-label">ID</label>
+                                      <input name="id" type="number" class="form-control" id="defaultFormControlInput" aria-describedby="defaultFormControlHelp" min="0" oninput="checkIdValue(this.value)" />
+                                      <span id="idError" style="color: red;"></span><br>
+                                  
+                                      
+                                      <label for="name" class="form-label">Name</label>
+                                      <input name="name" type="text" class="form-control" id="named" aria-describedby="nameHelp" pattern="[A-Za-z ]+" required>
+                                      <span id="nameError" style="color: red;"></span><br>
+
+                                      <label for="age" class="form-label">Age</label>
+                                      <input name="age" type="number" class="form-control" id="aged" aria-describedby="ageHelp" min="19" max="100" required>
+                                      <span id="ageError" style="color: red;"></span><br>
+                
+                                      <label for="ssn" class="form-label">SSN</label>
+                                      <input name="ssn" type="text" class="form-control" id="ssnd" aria-describedby="ssnHelp" pattern="[0-9]{14}" required>
+                                      <span id="ssnError" style="color: red;"></span><br>
+                                  
+
+                                      
+                                      <label for="email" class="form-label">Email</label>
+                                      <input name="email" type="email" class="form-control" id="emaild" aria-describedby="emailHelp" pattern="[a-zA-Z0-9._%+-]+@gmail\.com$" required>
+                                      <span id="emailError" style="color: red;"></span><br>
+                                  
+                                      <br>
+                                      <label for="password" class="form-label">Password</label>
+                                      <input name="password" type="password" class="form-control" id="passwordd" aria-describedby="passwordHelp" value="student_password" required><br>
+                                      
+                                      <label for="department" class="form-label">Gender</label>
+                                      <select name="department" class="form-select" id="GEnderd" aria-describedby="GenderHelp" required>
+                                          <option value="">Select Gender</option>
+                                          <option value="IS">Female</option>
+                                          <option value="IT">Male</option>
+                                      </select><br>
+
+                                      <label for="defaultFormControlInput" class="form-label">Salary</label>
+                                      <input name="id" type="number" class="form-control" id="salary" aria-describedby="defaultFormControlHelp" min="0" oninput="checkIdValue(this.value)" />
+                                      <span id="salaryError" style="color: red;"></span><br>
+
+                                
+                                    <!--  <label for="department" class="form-label">Department</label>
+                                      <select name="department" class="form-select" id="department" aria-describedby="departmentHelp" required>
+                                          <option value="">Select Department</option>
+                                          <option value="IS">IS</option>
+                                          <option value="IT">IT</option>
+                                          <option value="AI">AI</option>
+                                          <option value="CS">CS</option>
+                                      </select><br>
+                                      -->
+                                      <button type="submit" class="btn btn-primary" style="background-color: #095d6c !important; font-weight: bold;border: none; " onclick="addDoctort()" >Submit</button>
+                                  </form>
+
+
+                                  <script>
+                                  
+                                  function validateForm() {
+                                      var id = document.getElementById('defaultFormControlInput').value;
+                                      var name = document.getElementById('name').value;
+                                      var age = document.getElementById('age').value;
+                                      var ssn = document.getElementById('ssn').value;
+                                      var email = document.getElementById('email').value;
+                                      var salary = document.getElementById('salary').value;
+
+                                      // ID Validation
+                                      var idError = document.getElementById('idError');
+                                        if (!/^[0-9]*$/.test(value)) {
+                                            idError.textContent = "ID must contain only digits";
+                                        } else {
+                                            idError.textContent = "";
+                                        }
+
+                                      // Name Validation
+                                      if (!/^[A-Za-z ]+$/.test(name)) {
+                                          document.getElementById('nameError').textContent = "Name must contain only letters";
+                                          return false;
+                                      } else {
+                                          document.getElementById('nameError').textContent = "";
+                                      }
+
+                                      // Age Validation
+                                      if (age < 27 || age > 100) {
+                                          document.getElementById('ageError').textContent = "Age must be between 19 and 100";
+                                          return false;
+                                      } else {
+                                          document.getElementById('ageError').textContent = "";
+                                      }
+
+                                      // SSN Validation
+                                      if (!/^\d{14}$/.test(ssn)) {
+                                          document.getElementById('ssnError').textContent = "SSN must contain exactly 14 digits";
+                                          return false;
+                                      } else {
+                                          document.getElementById('ssnError').textContent = "";
+                                      }
+
+                                      // Email Validation
+                                      if (!/^[\w.%+-]+@gmail\.com$/.test(email)) {
+                                          document.getElementById('emailError').textContent = "Email must end with @gmail.com";
+                                          return false;
+                                      } else {
+                                          document.getElementById('emailError').textContent = "";
+                                      }
+
+                                      //Salary validation 
+                                       var salaryError = document.getElementById('slaryError');
+                                        if (!/^[0-9]*$/.test(value)) {
+                                            idError.textContent = "Salary must contain only digits";
+                                        } else {
+                                            salaryError.textContent = "";
+                                        }
+
+                                      return true;
+                                  }
+
+                                </script>
+
+
+
+                                  
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="demo-inline-spacing">
+                      
+                    <!-- /Modal -->
+                    <hr class="my-5" />
+                    <!-- Submit Button -->
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="py-3 mb-4"><span class="text-muted fw-light">Accounts /</span> All Doctor Accounts</h4>
+            <!-- Content wrapper -->
+            <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <!-- Basic Bootstrap Table -->
+             
+              <!-- Button ModalScrollable -->
+              <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#modalScrollable"
+              style="background-color: #095d6c !important; font-weight: bold; border: none; float: right;">
+              Add Doctor
+            </button>
+             </div>
+              <div class="card">
+                <h5 class="card-header">Doctors Accounts</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table" id="doctorTable">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>SSN</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Gender</th>
+                        <th>Salary</th>
+                        <td><button class="deleteButton btn btn-danger" data-id="1" style="background-color: #095d6c !important; font-weight: bold; border: none;">Delete</button></td>
+
+                        
+                      
+
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0" id="TableBoody">
+                     
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            
+
+
+            
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+          
+
+              <!-- Form Studen -->
+    
+                    <div class="modal fade" id="modalScrollable1" tabindex="-1" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="modalScrollableTitle">New Student</h5>
+                            <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <!-- Request Content to Admin -->
+                            <!-- To? -->
+
+                            <!--Add student -->
+                            <div class="mb-3" >
+
+                              <div class="demo-inline-spacing mt-3">
+                                <div class="list-group">
+                                  <div>
+                                    <form id="addStudentForm" onsubmit="return validateForm()">
+
+                                      <label for="defaultFormControlInput" class="form-label">ID</label>
+                                      <input name="id" type="number" class="form-control" id="id" aria-describedby="defaultFormControlHelp" min="0" oninput="checkIdValue(this.value)" />
+                                      <span id="idError" style="color: red;"></span><br>
+                                  
+                                      <br>
+
+                                      <label for="name" class="form-label">Name</label>
+                                      <input name="name" type="text" class="form-control" id="name" aria-describedby="nameHelp" pattern="[A-Za-z ]+" required>
+                                      <span id="nameError" style="color: red;"></span><br>
+
+                                      
+                                      <label for="age" class="form-label">Age</label>
+                                      <input name="age" type="number" class="form-control" id="age" aria-describedby="ageHelp" min="19" max="100" required>
+                                      <span id="ageError" style="color: red;"></span><br>
+                                  
+                                  
+
+                                      <label for="ssn" class="form-label">SSN</label>
+                                      <input name="ssn" type="text" class="form-control" id="ssn" aria-describedby="ssnHelp" pattern="[0-9]{14}" required>
+                                      <span id="ssnError" style="color: red;"></span><br>
+                                  
+
+                                      <label for="email" class="form-label">Email</label>
+                                      <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" pattern="[a-zA-Z0-9._%+-]+@gmail\.com$" required>
+                                      <span id="emailError" style="color: red;"></span><br>
+                                  
+                                      <label for="password" class="form-label">Password</label>
+                                      <input name="password" type="password" class="form-control" id="password" aria-describedby="passwordHelp" value="student_password" required><br>
+                                      
+
+                                      <label for="gender" class="form-label">Gender</label>
+                                    
+
+                                      <select name="gender" class="form-select" id="gender" aria-describedby="GenderHelp" required>
+                                          <option value="">Select Gender</option>
+                                          <option value="Female">Female</option>
+                                          <option value="Male">Male</option>
+                                      </select><br>
+
+                                      
+                                      <label for="level" class="form-label">Level</label>
+                                      <input name="level" type="text" class="form-control" id="level" aria-describedby="levelHelp" value="1"  required><br>
+                                  
+                                      <label for="department" class="form-label">Department</label>
+                                      <select name="department" class="form-select" id="department" aria-describedby="departmentHelp" required>
+                                          <option value="">Select Department</option>
+                                          <option value="IS">IS</option>
+                                          <option value="IT">IT</option>
+                                          <option value="AI">AI</option>
+                                          <option value="CS">CS</option>
+                                      </select><br>
+
+                                      <button type="submit" class="btn btn-primary" style="background-color: #095d6c !important; font-weight: bold;border: none; " onclick="addStudent()">Submit</button>
+
+                                    </form>
+
+
+                                   <script>
+                                  
+                                    function validateForm() {
+                                        var id = document.getElementById('id').value;
+                                        var name = document.getElementById('name').value;
+                                        var age = document.getElementById('age').value;
+                                        var ssn = document.getElementById('ssn').value;
+                                        var email = document.getElementById('email').value;
+
+                                        // ID Validation
+                                        var idError = document.getElementById('idError');
+                                          if (!/^[0-9]*$/.test(value)) {
+                                              idError.textContent = "ID must contain only digits";
+                                          } else {
+                                              idError.textContent = "";
+                                          }
+
+                                        // Name Validation
+                                        if (!/^[A-Za-z ]+$/.test(name)) {
+                                            document.getElementById('nameError').textContent = "Name must contain only letters";
+                                            return false;
+                                        } else {
+                                            document.getElementById('nameError').textContent = "";
+                                        }
+
+                                        // Age Validation
+                                        if (age < 19 || age > 100) {
+                                            document.getElementById('ageError').textContent = "Age must be between 19 and 100";
+                                            return false;
+                                        } else {
+                                            document.getElementById('ageError').textContent = "";
+                                        }
+
+                                        // SSN Validation
+                                        if (!/^\d{14}$/.test(ssn)) {
+                                            document.getElementById('ssnError').textContent = "SSN must contain exactly 14 digits";
+                                            return false;
+                                        } else {
+                                            document.getElementById('ssnError').textContent = "";
+                                        }
+
+                                        // Email Validation
+                                        if (!/^[\w.%+-]+@gmail\.com$/.test(email)) {
+                                            document.getElementById('emailError').textContent = "Email must end with @gmail.com";
+                                            return false;
+                                        } else {
+                                            document.getElementById('emailError').textContent = "";
+                                        }
+
+                                        return true;
+                                    }
+
+                                    </script>
+       
+                                  </div>
+                               </div>
+                             </div>
+                            </div>
+                    
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+          <!-- Content wrapper -->
+       
+
+
+
+
+
+
+          <h4 class="py-3 mb-4"><span class="text-muted fw-light">Accounts /</span> All Student Accounts</h4>
+             
+          <!-- Content wrapper -->
+           <div class="content-wrapper">
+              <!-- Content -->
+
+                <div class="container-xxl flex-grow-1 container-p-y">
+                
+                  <!-- Button ModalScrollable -->
+                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalScrollable1" style="background-color: #095d6c !important; font-weight: bold; border: none; float: right;">Add student</button>
+                </div>
+
+              <div class="card">
+                <h5 class="card-header">Student Accounts</h5>
+                <div class="table-responsive text-nowrap">
+                    <table class="table" id="studentTable">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>id</th>
+                          <th>Name</th>
+                          <th>Age</th>
+                          <th>SSN</th>
+                          <th>Email</th>
+                          <th>password</th>
+                          <th>Gender</th>   
+                          <th>Level</th>
+                          <th>Department</th>
+                          
+                          <td><button class="deleteButton btn btn-danger" data-id="1" style="background-color: #095d6c !important; font-weight: bold; border: none;">Delete</button></td>
+                        </tr>
+                      </thead>
+                      <tbody class="table-border-bottom-0" id="TableBody">
+                      
+                      </tbody>
+                    </table>
+                </div>
+              </div>
+
+<br>
+<br>
+<br>
+            </div>
+            <!--/ Basic Bootstrap Table -->
+
+            <!-- Footer -->
+            <footer class="content-footer footer bg-footer-theme">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                  <div class="mb-2 mb-md-0">
+                      &copy; <script>document.write(new Date().getFullYear());</script> FCAI, All Rights Reserved.
+                  </div>
+                  <div class="d-none d-lg-inline-block">
+                      <a href="#" class="footer-link me-4">Contact Us</a>
+                      <span class="footer-separator">|</span>
+                      <a href="#" class="footer-link">Privacy Policy</a>
+                  </div>
+              </div>
+            </footer>
+            <!-- / Footer -->
+          </div>
+
+
+
+       
+      
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+
+    
+    <script src="../../assets/vendor/libs/jquery/jq"></script>
+    <script src="../../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../../assets/vendor/js/bootstrap.js"></script>
+    <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../../assets/vendor/js/menu.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+
+    <!-- Main JS -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!--connect with api-->
+    <script>
+      $(document).ready(function() {
+              // Function to fetch data from the API and add it to the table
+              function fetchData() {
+                  $.ajax({
+                      url: 'http://localhost:8081/admin/displaystudent', // The URL to your API
+                      type: 'GET', // The HTTP method to use
+                      dataType: 'json', // The type of data you're expecting back from the server
+                      success: function(data) {
+                          // Clear existing table data
+                          $('#TableBody').empty();
+  
+                          // Iterate over each item in the response
+                          $.each(data, function(index, student) {
+                              // Create a new row with the student data
+                              var newRow = '<tr>' +
+                                  '<td><span class="custom-checkbox"><input type="checkbox" id="checkbox' + student.id + '"><label for="checkbox' + student.id + '"></label></span></td>' +
+                                  '<td>' + student.id + '</td>' +
+                                  '<td>' + student.name + '</td>' +
+                                  '<td>' + student.age + '</td>' + 
+                                  '<td>' + student.ssn + '</td>' +
+                                  '<td>' + student.email + '</td>' +
+                                  '<td>' + student.password + '</td>' +
+                                  '<td>' + student.gender + '</td>' +
+                                  '<td>' + student.level + '</td>' +
+                                  '<td>' + student.department + '</td>' +
+                                  '<td><button class="deleteButton btn btn-danger"  style="background-color: #095d6c !important; font-weight: bold; border: none;" data-id="' + student.id + '"><i class="bx bx-trash me-1"></i></button></td>' + // Move delete button code here
+
+                                   
+                                  '</tr>';
+  
+                              // Append the new row to the table body
+                              $('#TableBody').append(newRow);
+                          });
+                      },
+                      error: function(jqXHR, textStatus, errorThrown) {
+                          // Handle any errors that occur during the request
+                          console.error('Error fetching data: ' + textStatus, errorThrown);
+                      }
+                  });
+              }
+  
+              // Call the function to fetch data when the page loads
+              fetchData();
+          });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+          document.getElementById("addStudentForm").addEventListener('submit', addStudent);
+      });
+  
+      async function addStudent(event) {
+          event.preventDefault();
+  
+          const id = document.getElementById('id').value;
+          const name = document.getElementById('name').value;
+          const age = document.getElementById('age').value;
+          const ssn = document.getElementById('ssn').value;
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          const gender = document.getElementById('gender').value;
+          const level = document.getElementById('level').value;
+          const department = document.getElementById('department').value;
+  
+          const newStuData = {
+              id,
+              name,
+              age,
+              ssn,
+              email,
+              password,
+              gender,
+              level,
+              department
+          };
+  
+          try {
+              const response = await fetch('http://localhost:8081/admin/addStudent', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(newStuData)
+              });
+              // You might want to handle the response here
+          } catch (error) {
+              console.error('Error:', error);
+          }
+          window.location.reload();
+      }
+  </script>
+  
+    <script>
+      $(document).ready(function() {
+        // Event listener for delete button
+        $('#TableBody').on('click', '.deleteButton', function() {
+          var id = $(this).attr("data-id");
+          var $deleteButton = $(this); // Store reference to $(this)
+      
+          // Send DELETE request to API endpoint
+          $.ajax({
+            type: "DELETE",
+            url: "http://localhost:8081/admin/deleteStudent/" + id,
+            success: function(response) {
+              console.log("Student deleted successfully");
+              // Optionally, update the UI after successful deletion
+      
+              // Remove the row from the table after deletion
+              $deleteButton.closest('tr').remove(); // Use stored reference to $(this)
+            },
+            error: function(xhr, status, error) {
+              console.error("Error deleting student:", error);
+              // Handle errors if any
+            }
+          });
+        });
+      });
+      
+      
+  </script>
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  //doctor
+  $(document).ready(function() {
+    // Function to fetch data from the API and add it to the table
+    function fetchData() {
+        $.ajax({
+            url: 'http://localhost:8081/admin/displaydoctor', // The URL to your API
+            type: 'GET', // The HTTP method to use
+            dataType: 'json', // The type of data you're expecting back from the server
+            success: function(data) {
+                // Clear existing table data
+                $('#doctorTable tbody').empty();
+
+                // Iterate over each item in the response
+                $.each(data, function(index, doctor) {
+                    // Create a new row with the student data
+                    var newRow = '<tr>' +
+                        '<td>' + doctor.id + '</td>' +
+                        '<td>' + doctor.name + '</td>' +
+                        '<td>' + doctor.age + '</td>' + 
+                        '<td>' + doctor.ssn + '</td>' +
+                        '<td>' + doctor.email + '</td>' +
+                        '<td>' + doctor.password + '</td>' +
+                        '<td>' + doctor.gender + '</td>' +
+                        '<td>' + doctor.salary + '</td>' +
+                        '<td><button class="deleteButton btn btn-danger"  style="background-color: #095d6c !important; font-weight: bold; border: none;" data-id="' + doctor.id + '"><i class="bx bx-trash me-1"></i></button></td>' + 
+                        '</tr>';
+
+                    // Append the new row to the table body
+                    $('#doctorTable tbody').append(newRow);
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching data:', error);
+                // Handle errors if any
+                alert('Failed to fetch doctor data. Please try again later.');
+            }
+        });
+    }
+
+    // Call the function to fetch data when the page loads
+    fetchData();
+});
+
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+      document.getElementById("adddoctortable").addEventListener('submit', addDoctor);
+  });
+
+  async function addDoctor(event) {
+      event.preventDefault();
+
+      const id = document.getElementById('defaultFormControlInput').value;
+      const name = document.getElementById('named').value;
+      const age = document.getElementById('aged').value;
+      const ssn = document.getElementById('ssnd').value;
+      const email = document.getElementById('emaild').value;
+      const password = document.getElementById('passwordd').value;
+      const gender = document.getElementById('GEnderd').value;
+      const salary = document.getElementById('salary').value;
+
+      const newDcoData = {
+          id,
+          name,
+          age,
+          ssn,
+          email,
+          password,
+          gender,
+          salary
+         
+      };
+
+      try {
+          const response = await fetch('http://localhost:8081/admin/createDoctor', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(newDcoData)
+          });
+          // You might want to handle the response here
+      } catch (error) {
+          console.error('Error:', error);
+      }
+      window.location.reload();
+  }
+</script>
+
+
+
+
+
+<script>
+  $(document).ready(function() {
+    // Event listener for delete button
+    $('#TableBoody').on('click', '.deleteButton', function() {
+      var id = $(this).attr("data-id");
+      var $deleteButton = $(this); // Store reference to $(this)
+  
+      // Send DELETE request to API endpoint
+      $.ajax({
+        type: "DELETE",
+        url: "http://localhost:8081/admin/DeleteDoctor/" + id,
+        success: function(response) {
+          console.log("Student deleted successfully");
+          // Optionally, update the UI after successful deletion
+  
+          // Remove the row from the table after deletion
+          $deleteButton.closest('tr').remove(); // Use stored reference to $(this)
+        },
+        error: function(xhr, status, error) {
+          console.error("Error deleting doctor:", error);
+          // Handle errors if any
+        }
+      });
+    });
+  });
+  
+  
+</script>
+
+    
+  </body>
+</html>
